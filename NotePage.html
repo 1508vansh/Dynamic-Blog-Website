@@ -26,13 +26,18 @@
         <button class="btn btn-danger" onclick="applyStyle('bold')"><b>B</b></button>
         <button class="btn btn-secondary" onclick="applyStyle('italic')"><i>I</i></button>
         <button id="save-note-button" class="btn btn-primary">Save Note</button>
-        <button id="save-note-button" onclick="window.location.href='/index.html'" class="btn btn-primary">Home</button>
+        <button id="back-home" class="btn btn-primary">Home</button>
       </div>
     </div>
   </div>
   <div id="notes-container" class="container"></div>
   </section>
   <script>
+    // Add event listener to the back to home button
+    document.getElementById('back-home').addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
+
     function applyStyle(style) {
       document.execCommand(style, false, null);
     }
