@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CoderV.log - Blog Platform</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./createBlog.css">
+    <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="./CSS/createBlog.css">
 </head>
   <body>
 <nav id="nav-head" class="navbar navbar-expand-lg">
@@ -61,6 +61,10 @@
 <div id="imageContainer" style="margin-top: 20px;">
     <img id="imgElement" class="img-fluid" >
 </div>
+<div class="Blog-Title">
+    <label for="blogTitle">Blog Title:</label>
+  <input type="text" id="blogTitle" maxlength="40" class="form-control" placeholder="Blog Title (Maximum 40 characters)">
+</div>
 <div class="Note">
     <p>Note: Choose Next Line or Enter Before Selecting Headings.</p>
 </div>
@@ -81,10 +85,10 @@
 <div id="alert-div"></div>
 <!--container to keep blog cards-->
 <div id="cards-container" class="container">
-  <div class="card" style="width: 18rem;">
-       <img src="./SamAltman.avif">
+  <div id="sam-altman-card" class="card" style="width: 18rem;">
+       <img src="./assets/SamAltman.avif">
       <div class="card-body">
-        <h5 class="card-title">Sam Altman (Sample Blog)</h5>
+        <h5 class="card-title" style="font-weight: 900;">Sam Altman (Sample Blog)</h5>
         <p class="card-text">OpenAI was initially funded by Altman,
            Greg Brockman, Elon Musk, Jessica Livingston, Peter Thiel,
             Microsoft, Amazon Web Services, Infosys and YC Research.
@@ -168,6 +172,7 @@ deleteButtonManual.addEventListener('click',()=>{
   let Upload = document.getElementById('uploadButton');
   Upload.addEventListener('click',()=>{
     let imgData = document.getElementById('imgElement').getAttribute('src');
+    let blogTitle = document.getElementById('blogTitle').value;
     let textData = document.getElementById('editor').innerHTML;
       let card = document.createElement('div');
       card.className = 'card';
@@ -180,10 +185,12 @@ deleteButtonManual.addEventListener('click',()=>{
       cardBody.style.padding = '1rem';
       let cardHeading = document.createElement('h5');
       cardHeading.className = 'card-title';
-      cardHeading.innerHTML = `Blog ${count++}`;
+      cardHeading.innerHTML = `${count++}.${blogTitle}`;
       cardHeading.style.fontWeight = '900';
       let cardPara = document.createElement('p');
       cardPara.className = 'card-text';
+      cardPara.style.overflow = 'hidden';
+      cardPara.style.height = '100px';
       cardPara.innerHTML = textData.substring(0,90);
       let cardAnchor = document.createElement('a');
       cardAnchor.className = 'btn btn-primary readBlogButt';
@@ -220,6 +227,7 @@ deleteButtonManual.addEventListener('click',()=>{
 
        //clearing the data from input.........
       imageContainer.removeChild(imgElem);
+      document.getElementById('blogTitle').value = '';
       document.getElementById('editor').innerHTML = '';
 
       //pushing an alert message..........
@@ -237,6 +245,6 @@ deleteButtonManual.addEventListener('click',()=>{
   </script>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  <script src="./script.js"></script>
+  <script src="./JS/script.js"></script>
 </body>
 </html> 

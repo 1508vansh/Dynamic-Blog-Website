@@ -40,6 +40,9 @@ p {
     color: white;
     border-radius: 20px;
 }
+.Blog-Title>label{
+    margin-bottom: 2px;
+}
 .toolbar{
     display: flex;
     gap: 0.5rem;
@@ -73,4 +76,7 @@ p {
 .card-body>p{
     height: 100px;
     overflow:hidden;
+}
+#sam-altman-card{
+    margin-bottom: 20px;
 }
