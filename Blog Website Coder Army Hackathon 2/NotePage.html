@@ -75,7 +75,7 @@
       const encodedTitle = encodeURIComponent(titleInput.value);
       const encodedContent = encodeURIComponent(noteInput.innerHTML);
   
-      // Set the href of the link to the readNote.html page with query params
+      // Set the href of the link to the readNote.html page with query params.
       cardAnchor.href = `readNote.html?title=${encodedTitle}&content=${encodedContent}`;
   
       cardBody.appendChild(cardHeading);
