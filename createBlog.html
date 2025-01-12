@@ -102,6 +102,23 @@
 <!--The internal script is added because of some issue from Main Script File.........-->
 
   <script>
+    //listener to locate to register page through register button
+    let registerButton = document.querySelector('#Register');
+registerButton.addEventListener('click', () => {
+    // To locate to user register page
+    window.location.href = 'register.html';
+});
+
+// Listener to locate to createBlog page through dropdown 'create blog button'
+let dropdownCreateBlogButton = document.getElementById('dropdown-createBlog-button');
+dropdownCreateBlogButton.addEventListener('click', () => {
+    window.location.href = 'createBlog.html';
+});
+
+document.querySelector('#getstarted').addEventListener('click', () => {
+    window.location.href = 'NotePage.html';
+});
+
      // Function to apply text formatting (bold, italic)
  function applyStyle(style) {
   document.execCommand(style, false, null);
