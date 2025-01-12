@@ -54,7 +54,7 @@ Open the `index.html` file in your browser to view the website.
   - Used to make the website interactive.  
   - The posts you add are displayed on the page using **DOM (Document Object Model)**.  
   - Posts and notes are temporary and will disappear after you leave the page, as there’s no backend to store them.  
-
+  - for each file i've written JavaScript saparately to avoid conflicts.
 ---
 
 ## 5 Future Enhancements:  
