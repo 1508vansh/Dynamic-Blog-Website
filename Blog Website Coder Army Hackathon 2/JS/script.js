@@ -2,15 +2,15 @@
 let registerButton = document.querySelector('#Register');
 registerButton.addEventListener('click', () => {
     // To locate to user register page
-    window.location.href = '../../register.html';
+    window.location.href = '/register.html';
 });
 
 // Listener to locate to createBlog page through dropdown 'create blog button'
 let dropdownCreateBlogButton = document.getElementById('dropdown-createBlog-button');
 dropdownCreateBlogButton.addEventListener('click', () => {
-    window.location.href = '../../createBlog.html';
+    window.location.href = '/createBlog.html';
 });
 
 document.querySelector('#getstarted').addEventListener('click', () => {
-    window.location.href = '../../NotePage.html';
+    window.location.href = '/NotePage.html';
 });
