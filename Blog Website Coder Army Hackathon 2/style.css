@@ -1,0 +1,147 @@
+body{
+    font-family: cursive, "Roboto","Arial";
+    text-shadow: 1px 1px 0px white;
+}
+.front-img-div{
+    position: relative;
+    text-align: center;
+}
+#runningText{
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2rem;
+  font-family: cursive;
+  text-transform:uppercase;
+  text-decoration:dotted;
+  font-weight:bold;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+.navbar-brand{
+    font-family: cursive;
+    font-size: 2rem;
+    font-weight: 600;
+}
+.head-left-part{
+    display: flex;
+    gap: 1.2rem;
+}
+.head-right-part{
+    display: flex;
+    gap: 1rem;
+}
+#Register{
+    background-color: white;
+    font-family: cursive;
+}
+#Register:hover{
+    color: green;
+    box-shadow: 0px 0px 5px black;
+}
+#getstarted:hover{
+    box-shadow: 0px 0px 5px black;
+}
+#getstarted{
+  background-color: black;
+  color: white;
+}
+#creatBlog-button{
+   position: absolute;
+   bottom: 20%; 
+   right: 45%;
+   font-family: cursive;
+   font-size: 1.5rem;
+   font-weight: 900;
+   box-shadow: 0px 0px 10px black;
+}
+#creatBlog-button:hover{
+    transform: scale(1.1);
+}
+#shortTag{
+    font-size: 2rem;
+}
+.carousel-item>img{
+    border-radius: 20px;
+}
+.about-us-content{
+    height: 400px;
+    overflow:scroll;
+}
+#carousel-container{
+    background-color: rgb(254, 255, 234);
+    padding: 20px;
+}
+.contact-div{
+    margin-bottom: 2rem;
+}
+.nav-item:hover{
+    border: 1px black solid;
+    border-radius: 10px;
+}
+.feedback-div{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.website-color-change-section{
+    background-color:aliceblue;
+    margin-bottom: 2rem;
+}
+.color-changer{
+    display: flex;
+    justify-content: center;
+}
+.color-changer-div-sibling{
+    display: flex;
+    justify-content: center;
+}
+.contact-div{
+    text-align: center;
+    background-color:rgb(199, 199, 199);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+.carousel-caption>h1{
+    font-size: 3rem;
+}
+.contact-details>div{
+    font-weight: 100;
+}
+.contact-inner-div{
+    display: flex;
+    padding: 1rem;
+}
+.contact-form-container{
+    display: flex;
+    flex-direction: column;
+}
+.contact-button{
+    margin-top: 1rem;
+}
+#right-reserved-text-div{
+    display: flex;
+    justify-content: center;
+}
+@media (max-width:767px) {
+    #creatBlog-button{
+        right: 38%;
+    }
+    #runningText{
+        font-size: 1rem;
+    }
+    .carousel-caption>h1{
+        font-size: 2rem;
+    }
+}
+@media (max-width:490px){
+    #creatBlog-button{
+        right: 35%;
+        font-size: 1rem;
+    }
+}
+@media (max-width:443px){
+    #creatBlog-button{
+        right: 30%;
+    }
+}

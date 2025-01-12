@@ -1,0 +1,76 @@
+.toolbar {
+    margin-bottom: 10px;
+}
+.editor {
+    border: 1px solid #ccc;
+    padding: 10px;
+    /* min-height: 200px;
+    max-width: 600px; */
+    line-height: 1.6;
+    word-wrap: break-word;
+}
+.editor:empty:before {
+    content: "Start typing here...";
+    color: #aaa;
+}
+
+/* Custom styles for headings to make them larger */
+h1 {
+    font-size: 3rem;  /* Custom size for h1 */
+    color: #333;
+}
+
+h2 {
+    font-size: 2.5rem;  /* Custom size for h2 */
+    color: #333;
+}
+
+p {
+    font-size: 1rem;  /* Normal text size for paragraphs */
+    color: #333;
+}
+#blogContentTopButton{
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
+}
+#blogContentTopButton>h1{
+    background-color: black;
+    padding: 1rem;
+    color: white;
+    border-radius: 20px;
+}
+.toolbar{
+    display: flex;
+    gap: 0.5rem;
+    padding-top: 1rem;
+    justify-content: center;
+}
+#imageInput{
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+#CreateBlogButton{
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+.Note{
+    padding-top: 0.5rem;
+}
+#cards-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.toast-container{
+    display: flex;
+}
+#alert-div{
+    display: block;
+}
+.card-body>p{
+    height: 100px;
+    overflow:hidden;
+}

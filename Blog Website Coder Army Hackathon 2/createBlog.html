@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CoderV.log - Blog Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./createBlog.css">
+</head>
+  <body>
+<nav id="nav-head" class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="./index.html">CoderB.log</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <div class="head-left-part">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="./index.html#section6">Contact-Us</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Features
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" id="dropdown-createBlog-button" href="#">Create a Blog</a></li>
+              <li><a class="dropdown-item" href="./BlogDetails.html">Read Sample Blog</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="./index.html#section5">Change Website Color</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="./index.html#section3">About-Us</a>
+          </li>
+        </ul>
+        </div>
+        <form class="d-flex" role="search">
+          <div class="head-right-part">
+         <button id="Register" class="btn btn-outline-success" type="button">Register</button>
+          <button id="getstarted" class="btn btn-outline-success" type="button">Create Notes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <div id="blogContentDiv" class=".container">
+    <div id="blogContentTopButton">
+       <h1>Create Blog</h1>
+    </div>
+  </div>
+<div class="container">
+<div id="imageInput" class="container">
+    <input type="file" id="imageInput" accept="image/*">
+</div>
+<div id="imageContainer" style="margin-top: 20px;">
+    <img id="imgElement" class="img-fluid" >
+</div>
+<div class="Note">
+    <p>Note: Choose Next Line or Enter Before Selecting Headings.</p>
+</div>
+<div id="editor" class="editor" contenteditable="true">
+    <p>Start typing here...</p> 
+</div>
+<div class="toolbar .container">
+    <button  class="btn btn-primary" onclick="applyStyle('bold')"><b>B</b></button>
+    <button class="btn btn-secondary" onclick="applyStyle('italic')"><i>I</i></button>
+    <button class="btn btn-outline-success" onclick="applyStyle('underline')"><u>U</u></button>
+    <button class="btn btn-danger" onclick="applyHeading('h1')">Heading 1</button>
+    <button class="btn btn-warning" onclick="applyHeading('h2')">Heading 2</button>
+    <button class="btn btn-dark" onclick="applyHeading('p')">Paragraph</button>
+</div>
+<div id="CreateBlogButton" class="container">
+    <button id="uploadButton" type="button" class="btn btn-dark">Create And Upload</button>
+</div>
+<div id="alert-div"></div>
+<!--container to keep blog cards-->
+<div id="cards-container" class="container">
+  <div class="card" style="width: 18rem;">
+       <img src="./SamAltman.avif">
+      <div class="card-body">
+        <h5 class="card-title">Sam Altman (Sample Blog)</h5>
+        <p class="card-text">OpenAI was initially funded by Altman,
+           Greg Brockman, Elon Musk, Jessica Livingston, Peter Thiel,
+            Microsoft, Amazon Web Services, Infosys and YC Research.
+          When OpenAI launched in 2015, it had raised $1 billion.</p>
+        <a href="./BlogDetails.html" class="btn btn-primary">Read More</a>
+        <button id="deleteButtonManual" class="btn btn-danger">Delete Blog</button>
+       </div>
+     </div>
+</div>
+</div>
+<!--The internal script is added because of some issue from Main Script File.........-->
+
+  <script>
+     // Function to apply text formatting (bold, italic)
+ function applyStyle(style) {
+  document.execCommand(style, false, null);
+}
+
+// Function to change block type (heading, paragraph)
+function applyHeading(tag) {
+let selection = window.getSelection();
+let range = selection.getRangeAt(0);
+
+if (!selection.isCollapsed) {
+    let selectedNode = range.startContainer;
+
+    let element = document.createElement(tag);
+    range.surroundContents(element);
+} else {
+    document.execCommand("formatBlock", false, tag);
+}
+}
+
+
+// Function to apply text formatting (bold, italic, underline)
+//this is for createBlog Page for reading img file........
+const imageInput = document.getElementById('imageInput');
+const imageContainer = document.getElementById('imageContainer');
+const imgElem = document.getElementById('imgElement');
+// Add an event listener for the file input change event
+imageInput.addEventListener('change', function(event) {
+const file = event.target.files[0]; // Get the selected file
+
+if (file) {
+    const reader = new FileReader();
+
+    // When the file is read successfully, set the image source and display it
+    reader.onload = function(e) {
+        // Create an <img> element and set its source to the file's data URL
+        console.log("File selected:", file);
+        imgElem.src = e.target.result;
+        imgElem.style.maxWidth = '100%'; // Optional: to fit the container
+        imageContainer.innerHTML = ''; // Clear any previous content in the div
+        imageContainer.appendChild(imgElem); // Append the image to the div
+    };
+    
+    // Read the selected file as a data URL
+    reader.readAsDataURL(file);
+}
+});
+
+
+
+
+//listener deleting the existing card manually.............
+let deleteButtonManual = document.getElementById('deleteButtonManual');
+deleteButtonManual.addEventListener('click',()=>{
+  document.getElementById('cards-container').removeChild(document.querySelector('.card'));
+})
+//Card OverView....................
+// <div class="card" style="width: 18rem;">
+//   <img>
+//   <div class="card-body">
+//     <h5 class="card-title"></h5>
+//     <p class="card-text">Text Content.</p>
+//     <a class="btn btn-primary">Read Blog</a>
+//   </div>
+// </div>
+//Create And Upload Button Listener...................
+  let count = 1;
+  let Upload = document.getElementById('uploadButton');
+  Upload.addEventListener('click',()=>{
+    let imgData = document.getElementById('imgElement').getAttribute('src');
+    let textData = document.getElementById('editor').innerHTML;
+      let card = document.createElement('div');
+      card.className = 'card';
+      card.style.width = '18rem';
+      card.style.marginBottom = '20px';
+      let cardImg = document.createElement('img');
+      cardImg.className = 'card-img-top';
+      cardImg.src = imgData;
+      let cardBody = document.createElement('div');
+      cardBody.style.padding = '1rem';
+      let cardHeading = document.createElement('h5');
+      cardHeading.className = 'card-title';
+      cardHeading.innerHTML = `Blog ${count++}`;
+      cardHeading.style.fontWeight = '900';
+      let cardPara = document.createElement('p');
+      cardPara.className = 'card-text';
+      cardPara.innerHTML = textData.substring(0,90);
+      let cardAnchor = document.createElement('a');
+      cardAnchor.className = 'btn btn-primary readBlogButt';
+      cardAnchor.innerHTML = 'Read Blog';
+      let deleteCard = document.createElement('button');
+      deleteCard.className = 'btn btn-danger';
+      deleteCard.innerHTML = 'Delete Blog';
+      deleteCard.style.marginLeft = '5px';
+      deleteCard.addEventListener('click',()=>{
+        document.getElementById('cards-container').removeChild(card);
+      });
+      //Listener when the read Blog button is clicked, opens the new page containing blog details.................
+      cardAnchor.addEventListener('click',()=>{
+        let parentDiv = document.getElementById('alert-div');
+        let alertDiv = document.createElement('div');
+        alertDiv.className = "alert alert-danger";
+        alertDiv.setAttribute('role', 'alert');
+        parentDiv.appendChild(alertDiv);
+        alertDiv.innerHTML = "Sorry Backend is not ready!";
+        alertDiv.style.marginTop = '0.5rem';
+        setTimeout(()=>{
+           parentDiv.removeChild(alertDiv);
+        },1500)
+      })
+      //inserting elements.....
+      cardBody.appendChild(cardHeading);
+      cardBody.appendChild(cardPara);
+      cardBody.appendChild(cardAnchor);
+      card.appendChild(cardImg);
+      card.appendChild(cardBody);
+      cardBody.appendChild(deleteCard);
+
+      document.getElementById('cards-container').appendChild(card);
+
+       //clearing the data from input.........
+      imageContainer.removeChild(imgElem);
+      document.getElementById('editor').innerHTML = '';
+
+      //pushing an alert message..........
+      let parentDiv = document.getElementById('alert-div');
+      let alertDiv = document.createElement('div');
+      alertDiv.className = "alert alert-success";
+      alertDiv.setAttribute('role', 'alert');
+      parentDiv.appendChild(alertDiv);
+      alertDiv.innerHTML = "Uploaded Successfully";
+      alertDiv.style.marginTop = '0.5rem';
+      setTimeout(()=>{
+         parentDiv.removeChild(alertDiv);
+      },1500)
+  })
+  </script>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="./script.js"></script>
+</body>
+</html> 

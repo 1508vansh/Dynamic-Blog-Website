@@ -1,0 +1,18 @@
+#full-container{
+    font-family: cursive;
+    background-color: rgb(221, 211, 199);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+#form-container{
+    margin-top: 2rem;
+    height: 60vh;
+    width: 95vw;
+    background-color: white;
+}
+#registerheading{
+    font-size: 2rem;
+    font-family: cursive;
+}
