@@ -1,5 +1,5 @@
 #full-container{
-    font-family: cursive;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, 'Arial', sans-serif;
     background-color: rgb(221, 211, 199);
     height: 100vh;
     width: 100vw;
@@ -14,5 +14,5 @@
 }
 #registerheading{
     font-size: 2rem;
-    font-family: cursive;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, 'Arial', sans-serif;
 }

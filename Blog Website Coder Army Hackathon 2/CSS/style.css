@@ -1,5 +1,5 @@
 body{
-    font-family: cursive, "Roboto","Arial";
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif,'sans-serif',"Arial";
     text-shadow: 1px 1px 0px white;
 }
 .front-img-div{
@@ -20,7 +20,7 @@ body{
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 .navbar-brand{
-    font-family: cursive;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif,cursive,"Arial";
     font-size: 2rem;
     font-weight: 600;
 }
@@ -34,7 +34,7 @@ body{
 }
 #Register{
     background-color: white;
-    font-family: cursive;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif,cursive,"Arial";
 }
 #Register:hover{
     color: green;
